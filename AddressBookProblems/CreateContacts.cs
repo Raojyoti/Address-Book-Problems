@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace AddressBookProblems
@@ -117,6 +118,62 @@ namespace AddressBookProblems
                     }
                 }
             }
+        }
+        public static void DeletePerson()
+        {
+            List<PersonalDetails> Person = FindPeopleByFirstName();
+
+            Console.Clear();
+
+            if (Person.Count == 0)
+            {
+                Console.WriteLine("That person could not be found. Press any key to continue");
+                Console.ReadKey();
+                return;
+            }
+
+            if (Person.Count == 1)
+            {
+                DeletePersonFromList(Person.Single());
+                Person.Single();
+                return;
+            }
+
+            Console.WriteLine("Enter the number of the person you want to remove");
+            for (int i = 0; i < Person.Count; i++)
+            {
+                Console.WriteLine(i);
+                PrintPerson(Person.ElementAt(i));
+            }
+            int removePersonNumber = Convert.ToInt32(Console.ReadLine());
+            if (removePersonNumber > Person.Count - 1 || removePersonNumber < 0)
+            {
+                Console.WriteLine("That number is invalid. Press any key to continue.");
+                Console.ReadKey();
+                return;
+            }
+            DeletePersonFromList(Person.ElementAt(removePersonNumber));
+        }
+        public static void DeletePersonFromList(PersonalDetails contact)
+        {
+            Console.Clear();
+            Console.WriteLine("Are you sure you want to remove this person from your address book? (Y/N)");
+            PrintPerson(contact);
+
+            if (Console.ReadKey().Key == ConsoleKey.Y)
+            {
+                Person.Remove(contact);
+                Console.Clear();
+                Console.WriteLine("Person removed. Press any key to continue.");
+                Console.ReadKey();
+            }
+        }
+        public static List<PersonalDetails> FindPeopleByFirstName()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter the first name of the person ");
+            string firstName = Console.ReadLine();
+            return Person.Where(x => x.firstName.ToLower() == firstName.ToLower()).ToList();
         }
         public static void DisplayHelp()
         {
