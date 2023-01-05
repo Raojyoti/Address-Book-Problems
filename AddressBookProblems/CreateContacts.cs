@@ -57,6 +57,67 @@ namespace AddressBookProblems
             Console.WriteLine("\nPress any key to continue.");
             Console.ReadKey();
         }
+        public static void EditOfDetails()
+        {
+            Console.WriteLine("Enter First Name: ");
+            string name = Console.ReadLine();
+            foreach (var data in Person)
+            {
+                if (Person.Contains(data))
+                {
+                    if (data.firstName == name)
+                    {
+                        Console.WriteLine("To edit contacts enter \n1.FirstName\n 2.LastName\n 3.Address\n 4.City\n 5.State\n 6.Zipcode\n 7.PhoneNumber\n");
+                        int option = Convert.ToInt32(Console.ReadLine());
+                        switch (option)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter New First Name : ");
+                                string firstName = Console.ReadLine();
+                                data.firstName = firstName;
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter New Last Name : ");
+                                string lastName = Console.ReadLine();
+                                data.lastName = lastName;
+                                break;
+                            case 3:
+                                Console.WriteLine("Enter New Address : ");
+                                string address = Console.ReadLine();
+                                data.address = address;
+                                break;
+                            case 4:
+                                Console.WriteLine("Enter City : ");
+                                string city = Console.ReadLine();
+                                data.city = city;
+                                break;
+                            case 5:
+                                Console.WriteLine("Enter New State : ");
+                                string state = Console.ReadLine();
+                                data.state = state;
+                                break;
+                            case 6:
+                                Console.WriteLine("Enter New Zip Code : ");
+                                int zipCode = Convert.ToInt32(Console.ReadLine());
+                                data.zipcode = zipCode;
+                                break;
+                            case 7:
+                                Console.WriteLine("Enter New Phone Number : ");
+                                int phonenumber = Convert.ToInt32(Console.ReadLine());
+                                data.phonenumber = phonenumber;
+                                break;
+                            default:
+                                Console.WriteLine("Select Valid option ");
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Name does not match");
+                    }
+                }
+            }
+        }
         public static void DisplayHelp()
         {
             Console.Clear();
