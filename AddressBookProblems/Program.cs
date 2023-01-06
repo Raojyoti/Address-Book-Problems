@@ -12,7 +12,7 @@ namespace AddressBookProblems
             while (command != "exit")
             {
                 Console.Clear();
-                Console.WriteLine("The commands are:\n 1.create\n 2.list\n 3.edit\n 4.delete\n 5.addMultiContacts\n 6.newUser\n 7.exit\n ");
+                Console.WriteLine("The commands are:\n 1.create\n 2.list\n 3.edit\n 4.delete\n 5.addMultiContacts\n 6.newUser\n 7.checkDublicateName\n 8.exit\n ");
                 Console.WriteLine("Please enter a command: ");
                 command = Console.ReadLine().ToLower();
 
@@ -36,6 +36,9 @@ namespace AddressBookProblems
                     case "newUser":
                         CreateContacts create = new CreateContacts();
                         create.NewUser();
+                        break;
+                    case "checkDublicateName":
+                        CreateContacts.DublicateCheckPersonByName();
                         break;
                     default:
                         if (command != "exit")

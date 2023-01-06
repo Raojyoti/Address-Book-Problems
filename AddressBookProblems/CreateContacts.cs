@@ -8,7 +8,7 @@ namespace AddressBookProblems
     public class CreateContacts
     {
         public static List<PersonalDetails> Person = new List<PersonalDetails>();
-        Dictionary<string, List<PersonalDetails>> book = new Dictionary<string, List<PersonalDetails>>();
+        public static Dictionary<string, List<PersonalDetails>> book = new Dictionary<string, List<PersonalDetails>>();
         public static void PersonInformations()
         {
             PersonalDetails contacts = new PersonalDetails();
@@ -196,8 +196,27 @@ namespace AddressBookProblems
             {
                 number--;
                 PersonInformations();
+                DisplayList();
             }
             book.Add(Bookname, Person.ToList());
+        }
+        public static void DublicateCheckPersonByName()
+        {
+            List<PersonalDetails> Person = FindPeopleByFirstName();
+            if (Person.Count == 0)
+            {
+                Console.WriteLine("That person could not be Present in Address Book");
+                PersonInformations();
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+                return;
+            }
+            if (Person.Count == 1)
+            {
+                Console.WriteLine("That person Present in Address Book");
+                ListPeople();
+                return;
+            }
         }
         public void  DisplayList()
         {
