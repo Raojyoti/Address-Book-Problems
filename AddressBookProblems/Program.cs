@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AddressBookProblems
 {
     public class Program
     {
+        public static List<PersonalDetails> Person = new List<PersonalDetails>();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the Address Book");
@@ -11,13 +13,13 @@ namespace AddressBookProblems
             while (command != "exit")
             {
                 Console.Clear();
-                Console.WriteLine("The commands are:\n 1.add\n 2.list\n 3.edit\n 4.delete\n 5.exit\n ");
+                Console.WriteLine("The commands are:\n 1.create\n 2.list\n 3.edit\n 4.delete\n 5.addMultiContacts\n 5.exit\n ");
                 Console.WriteLine("Please enter a command: ");
                 command = Console.ReadLine().ToLower();
 
                 switch (command)
                 {
-                    case "add":
+                    case "create":
                         CreateContacts.PersonInformations();
                         break;
                     case "list":
@@ -28,6 +30,9 @@ namespace AddressBookProblems
                         break;
                     case "delete":
                         CreateContacts.DeletePerson();
+                        break;
+                    case "addMultiContacts":
+                        CreateContacts.AddMultipleContacts();
                         break;
                     default:
                         if (command != "exit")

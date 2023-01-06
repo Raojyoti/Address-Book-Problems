@@ -175,6 +175,16 @@ namespace AddressBookProblems
             string firstName = Console.ReadLine();
             return Person.Where(x => x.firstName.ToLower() == firstName.ToLower()).ToList();
         }
+        public static void AddMultipleContacts()
+        {
+            Console.WriteLine("Enter the Number of Records you want to Insert");
+            int number = (int)Convert.ToInt64(Console.ReadLine());
+            while (number > 0)
+            {
+                PersonInformations();
+                number--;
+            }
+        }
         public static void DisplayHelp()
         {
             Console.Clear();
