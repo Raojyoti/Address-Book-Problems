@@ -8,6 +8,7 @@ namespace AddressBookProblems
     public class CreateContacts
     {
         public static List<PersonalDetails> Person = new List<PersonalDetails>();
+        Dictionary<string, List<PersonalDetails>> book = new Dictionary<string, List<PersonalDetails>>();
         public static void PersonInformations()
         {
             PersonalDetails contacts = new PersonalDetails();
@@ -183,6 +184,37 @@ namespace AddressBookProblems
             {
                 PersonInformations();
                 number--;
+            }
+        }
+        public void NewUser()
+        {
+            Console.WriteLine("Enter the Bookname: ");
+            string Bookname = Console.ReadLine();
+            Console.WriteLine("Enter The Number of Contacts To Add");
+            int number = int.Parse(Console.ReadLine());
+            while (number > 0)
+            {
+                number--;
+                PersonInformations();
+            }
+            book.Add(Bookname, Person.ToList());
+        }
+        public void  DisplayList()
+        {
+            foreach (var pair in book.Keys)
+            {
+                Console.WriteLine("Address Book Name " + pair);
+                foreach (PersonalDetails data in book[pair])
+                {
+                    Console.WriteLine("First Name: " + data.firstName);
+                    Console.WriteLine("Last Name: " + data.lastName);
+                    Console.WriteLine("Address: " + data.address);
+                    Console.WriteLine("City : " + data.city);
+                    Console.WriteLine("State: " + data.state);
+                    Console.WriteLine("Zip : " + data.zipcode);
+                    Console.WriteLine("Phone Number: " + data.phonenumber);
+                    Console.WriteLine("EmailID: " + data.email);
+                }
             }
         }
         public static void DisplayHelp()
