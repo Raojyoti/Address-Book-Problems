@@ -329,5 +329,15 @@ namespace AddressBookProblems
                 }
             }
         }
+        public static void SortPersonsName()
+        {
+            var values = Person.OrderBy(x => x.firstName.ToLower()).ToList();
+            Console.WriteLine("Sort person name in alphabetically");
+            Console.WriteLine("-------------------------------------");
+            foreach (var result in values)
+            {
+                Console.WriteLine(result.firstName);
+            }
+        }
     }
 }
