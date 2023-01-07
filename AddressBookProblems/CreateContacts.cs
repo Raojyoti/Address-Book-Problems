@@ -339,5 +339,29 @@ namespace AddressBookProblems
                 Console.WriteLine(result.firstName);
             }
         }
+        public static void SortPersonByCityStateOrZip()
+        {
+            var citysort = Person.OrderBy(x => x.city.ToLower()).ToList();
+            var statesort = Person.OrderBy(x => x.state.ToLower()).ToList();
+            var zipcodesort = Person.OrderBy(x => x.zipcode).ToList();
+            Console.WriteLine("Sort person name city name");
+            Console.WriteLine("--------------------------------------");
+            foreach (var result in citysort)
+            {
+                Console.WriteLine(result.firstName + "    " + result.city);
+            }
+            Console.WriteLine("Sort person name by state name");
+            Console.WriteLine("-----------------------------------");
+            foreach (var result in statesort)
+            {
+                Console.WriteLine(result.firstName + "    " + result.state);
+            }
+            Console.WriteLine("Sort person name by zipcoad");
+            Console.WriteLine("----------------------------------");
+            foreach (var result in zipcodesort)
+            {
+                Console.WriteLine(result.firstName + "     " + result.zipcode);
+            }
+        }
     }
 }
