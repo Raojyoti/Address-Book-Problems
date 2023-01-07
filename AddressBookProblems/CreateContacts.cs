@@ -120,6 +120,35 @@ namespace AddressBookProblems
                 }
             }
         }
+        public void DisplayList()
+        {
+            foreach (var pair in book.Keys)
+            {
+                Console.WriteLine("Address Book Name " + pair);
+                foreach (PersonalDetails data in book[pair])
+                {
+                    Console.WriteLine("First Name: " + data.firstName);
+                    Console.WriteLine("Last Name: " + data.lastName);
+                    Console.WriteLine("Address: " + data.address);
+                    Console.WriteLine("City : " + data.city);
+                    Console.WriteLine("State: " + data.state);
+                    Console.WriteLine("Zip : " + data.zipcode);
+                    Console.WriteLine("Phone Number: " + data.phonenumber);
+                    Console.WriteLine("EmailID: " + data.email);
+                }
+            }
+        }
+        public static void DisplayHelp()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter only Available Commands are :");
+            Console.WriteLine("add => \tAdds a person to address book");
+            Console.WriteLine("edit => \tEdit a person to address book by first name");
+            Console.WriteLine("remove => \tRemoves a person from address book");
+            Console.WriteLine("list => \tLists out all people in the address book");
+            Console.WriteLine("Press \tAny key to continue");
+            Console.WriteLine("\n");
+        }
         public static void DeletePerson()
         {
             List<PersonalDetails> Person = FindPeopleByFirstName();
@@ -200,7 +229,7 @@ namespace AddressBookProblems
             }
             book.Add(Bookname, Person.ToList());
         }
-        public static void DublicateCheckPersonByName()
+        public static void DuplicateCheckPersonByName()
         {
             List<PersonalDetails> Person = FindPeopleByFirstName();
             if (Person.Count == 0)
@@ -218,34 +247,30 @@ namespace AddressBookProblems
                 return;
             }
         }
-        public void  DisplayList()
+        public static List<PersonalDetails> PeopleByCityOrState()
         {
-            foreach (var pair in book.Keys)
+             Console.Clear();
+            Console.WriteLine("Enter that City or State name where want to search the person name ");
+            string CityOrState = Console.ReadLine();
+            return Person.Where(x => x.city.ToLower() == CityOrState.ToLower() || x.state.ToLower() == CityOrState.ToLower()).ToList();
+        }
+        public static void SearchPersonByCityOrState()
+        {
+            List<PersonalDetails> Person = PeopleByCityOrState();
+            if (Person.Count == 0)
             {
-                Console.WriteLine("Address Book Name " + pair);
-                foreach (PersonalDetails data in book[pair])
-                {
-                    Console.WriteLine("First Name: " + data.firstName);
-                    Console.WriteLine("Last Name: " + data.lastName);
-                    Console.WriteLine("Address: " + data.address);
-                    Console.WriteLine("City : " + data.city);
-                    Console.WriteLine("State: " + data.state);
-                    Console.WriteLine("Zip : " + data.zipcode);
-                    Console.WriteLine("Phone Number: " + data.phonenumber);
-                    Console.WriteLine("EmailID: " + data.email);
-                }
+                Console.WriteLine("That city or state could not be Present in Address Book");
+                Console.WriteLine("Press any key to continue.");
+                Console.ReadKey();
+                return;
+            }
+            if (Person.Count == 1)
+            {
+                Console.WriteLine("That Details Present in Address Book");
+                ListPeople();
+                return;
             }
         }
-        public static void DisplayHelp()
-        {
-            Console.Clear();
-            Console.WriteLine("Enter only Available Commands are :");
-            Console.WriteLine("add => \tAdds a person to address book");
-            Console.WriteLine("edit => \tEdit a person to address book by first name");
-            Console.WriteLine("remove => \tRemoves a person from address book");
-            Console.WriteLine("list => \tLists out all people in the address book");
-            Console.WriteLine("Press \tAny key to continue");
-            Console.WriteLine("\n");
-        }
+       
     }
 }
