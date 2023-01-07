@@ -271,6 +271,36 @@ namespace AddressBookProblems
                 return;
             }
         }
-       
+        public static void ViewPersonByCityOrState()
+        {
+            Console.Clear();
+            Console.Write("Enter that City or State name you want to view the person name: ");
+            string CityOrState = Console.ReadLine();
+            foreach (var data in Person)
+            {
+                if (Person.Contains(data))
+                {
+                    if (data.city == CityOrState)
+                    {
+                        var values = Person.Where(x => x.city.ToLower() == CityOrState.ToLower()).ToList();
+                        foreach (var result in values)
+                        {
+                            Console.WriteLine(result.firstName + "  " + result.lastName + "  " + result.city);
+                        }
+                    }
+                    else
+                    {
+                        if (data.state == CityOrState)
+                        {
+                            var values = Person.Where(x => x.state.ToLower() == CityOrState.ToLower()).ToList();
+                            foreach (var results in values)
+                            {
+                                Console.WriteLine(results.firstName + "  " + results.lastName + "  " + results.state);
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
