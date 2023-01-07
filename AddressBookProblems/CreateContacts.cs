@@ -302,5 +302,32 @@ namespace AddressBookProblems
                 }
             }
         }
+        public static void CountCityOrState()
+        {
+            Console.Clear();
+            Console.WriteLine("Enter the City or State name that want to count ");
+            string CityOrState = Console.ReadLine();
+            Console.WriteLine("Number of contact person that is count by City or State");
+            Console.WriteLine("----------------------------------------------------------");
+            foreach (var data in Person)
+            {
+                if (Person.Contains(data))
+                {
+                    if (data.city == CityOrState)
+                    {
+                        var values = Person.Count(x => x.city.ToLower() == CityOrState.ToLower());
+                        Console.WriteLine(values);
+                    }
+                    else
+                    {
+                        if (data.state == CityOrState)
+                        {
+                            var values = Person.Count(x => x.state.ToLower() == CityOrState.ToLower());
+                            Console.WriteLine(values);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
