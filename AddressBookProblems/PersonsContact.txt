@@ -1,0 +1,65 @@
+﻿ Address Book:=
+---------------------------
+FirstName      :-   Jyoti
+LastName       :-   Rao
+Address        :-   Preet Vihar Colony Near Fire Station
+City           :-   Bulandshahr
+State          :-   Uttar Pradesh
+Zipcode        :-   203130
+Phonenumber    :-   7805982520
+Email Id       :-   jrao123@gmail.com
+
+-----------------------------------------------------------------
+
+FirstName      :-   Riya
+LastName       :-   Sharma
+Address        :-   Purani Tehsil khurja
+City           :-   Khurja
+State          :-   Uttar Pradesh
+Zipcode        :-   203131
+Phonenumber    :-   9825982520
+Email Id       :-   riya593@gmail.com
+
+-----------------------------------------------------------------
+
+FirstName      :-   Amit
+LastName       :-   Singh
+Address        :-   Malviya Nagar 
+City           :-   Gorakhpur
+State          :-   Uttar Pradesh
+Zipcode        :-   273010
+Phonenumber    :-   8505982624
+Email Id       :-   amit193@gmail.com
+
+-----------------------------------------------------------------
+
+FirstName      :-   Rahul
+LastName       :-   Agrawal
+Address        :-   Goinka colony
+City           :-   Aligarh
+State          :-   Uttar Pradesh
+Zipcode        :-   202122
+Phonenumber    :-   7805982520
+Email Id       :-   rahul25@gmail.com
+
+-----------------------------------------------------------------
+
+FirstName      :-   Neetu
+LastName       :-   Sharma
+Address        :-   Panchvati colony
+City           :-   Lucknow
+State          :-   Uttar Pradesh
+Zipcode        :-   112536
+Phonenumber    :-   9905982520
+Email Id       :-   neetu773@gmail.com
+
+-----------------------------------------------------------------
+
+FirstName      :-   Manisha
+LastName       :-   Singh
+Address        :-   Maharaja colony
+City           :-   Bulandshahr
+State          :-   Uttar Pradesh
+Zipcode        :-   273147
+Phonenumber    :-   7995982520
+Email Id       :-   mahi523@gmail.com
